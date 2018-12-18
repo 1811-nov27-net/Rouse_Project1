@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard - Pete's Pizza Pagoda";
+}
+
+<div class="text-center">
+    <h1>User Dashboard</h1>
+</div>
+
+<br /><br />
+
+<div class="text-center">
+    <h4>Welcome back, @TempData.Peek("uFirstName") @TempData.Peek("uLastName")!</h4>
+</div>
+
+<div class="link-holder">
+    <a asp-area="" asp-controller="Customer" asp-action="StartNewOrder" asp-route-id="@TempData.Peek("uId")" class="my-link">
+        <div class="link-decorator">
+            <h4>Place an Order from @TempData.Peek("lCity"), @TempData.Peek("lState")</h4>
+        </div>
+    </a>
+</div>
+
+<div class="link-holder">
+    <a asp-area="" asp-controller="Customer" asp-action="ViewOrders" asp-route-id="@TempData.Peek("uId")" class="my-link">
+        <div class="link-decorator">
+            <h4>View Order History</h4>
+        </div>
+    </a>
+</div>
+
+<div class="link-holder">
+    <a asp-area="" asp-controller="Customer" asp-action="ChangeLocation" asp-route-id="@TempData.Peek("uId")" class="my-link">
+        <div class="link-decorator">
+            <h4>Change Order Location</h4>
+        </div>
+    </a>
+</div>
+
+<br /><br />
+
+<div>
+    <p>@TempData["message"]</p>
+</div>

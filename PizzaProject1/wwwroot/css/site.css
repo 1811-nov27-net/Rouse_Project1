@@ -1,0 +1,135 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/* ---------------- My styles ---------------- */
+li.nav-item {
+    border-left: solid black 1px;
+}
+
+body {
+    background-color: #ff6800;
+}
+
+.link-holder {
+    margin: 15px auto;
+    width: 40%;
+    text-align: center;
+}
+
+.link-decorator {
+    background-color: #803400;
+    border-radius: 7px;
+}
+
+.my-link {
+    color: #ffc100;
+}
+
+.my-link:hover {
+    color: #502000;
+    transition: 0.25s;
+}
+
+.link-decorator:hover {
+    background-color: #ffc100;
+    transition: 0.25s;
+}
+
+.table-link a {
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: #ff2400;
+    border: solid #ff2400 1px;
+    color: #140300;
+    transition: 0.25s;
+    margin: 0px 10px;
+}
+
+.table-link a:hover {
+    padding: 7px 15px;
+    background-color: #140300;
+    border: solid #e8482e 1px;
+    color: #e8482e;
+}
+
+.table thead tr {
+    background-color: #ffc100;
+}
+
+.table tbody tr {
+    background-color: #502000;
+    color: #ffe38c;
+}
+
+.table tbody tr:nth-of-type(2n+1) {
+    background-color: #803400;
+}
+
+.return-link a {
+    background-color: #502000;
+    border: solid #502000 1px;
+    color: #ff2400;
+    padding: 2px 5px;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+
+.return-link a:hover {
+    color: #502000;
+    background-color: #ff2400;
+    padding: 2px 7px;
+}

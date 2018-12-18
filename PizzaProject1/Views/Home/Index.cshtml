@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Pete's Pizza Pagoda - Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Pete's Pizza Pagoda!</h1>
+    <p>Ridiculously pricey. Ridiculously tasty.</p>
+</div>
+
+<br /><br />
+
+<div class="link-holder">
+    <a asp-area="" asp-controller="Home" asp-action="CustomerSelect" class="my-link">
+        <div class="link-decorator">
+            <h3>Customers</h3>
+            <p>Click here to sign in and place an order</p>
+        </div>
+    </a>
+</div>
+
+<div class="link-holder">
+    <a asp-area="" asp-controller="Admin" asp-action="Index" class="my-link">
+        <div class="link-decorator">
+            <h3>Managers</h3>
+            <p>Click here to view administrative functions</p>
+        </div>
+    </a>
+</div>

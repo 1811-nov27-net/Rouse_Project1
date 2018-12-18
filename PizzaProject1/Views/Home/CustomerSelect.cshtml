@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PizzaProject1.Models.User>
+
+@{
+    ViewData["Title"] = "Customers - Pete's Pizza Pagoda";
+}
+
+<div class="text-center">
+    <h1>Customers</h1>
+</div>
+
+
+<h4>Select a user:</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td class="table-link">
+                @Html.ActionLink("Select", "Index", "Customer", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

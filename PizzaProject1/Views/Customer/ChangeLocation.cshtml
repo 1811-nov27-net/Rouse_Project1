@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PizzaProject1.Models.Location>
+
+@{
+    ViewData["Title"] = "ChangeLocation";
+}
+
+<div class="text-center">
+    <h1>Change Order Location</h1>
+</div>
+
+<br /><br />
+
+<div>
+    <h4>Your current order location is: @TempData.Peek("lCity"), @TempData.Peek("lState")</h4>
+</div>
+
+<p class="return-link">
+    <a asp-action="Index" asp-route-id="@TempData.Peek("uId")"><< Back to User Dashboard</a>
+</p>
+
+<div>
+    <p>Set new order location:</p>
+    <form asp-action="SetLocation">
+        <div class="form-group">
+            <select class="form-control" name="location_setter">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">@item.City, @item.State</option>
+                }
+            </select>
+        </div>
+
+        <input type="submit" value="Change Location" />
+    </form>
+</div>
+

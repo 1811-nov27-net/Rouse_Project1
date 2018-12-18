@@ -1,0 +1,91 @@
+﻿@model IEnumerable<PizzaProject1.Models.Order>
+
+@{
+    ViewData["Title"] = "Admin - Show All Orders for a Location";
+}
+
+<div class="text-center">
+    <h1>Orders</h1>
+</div>
+
+<p class="return-link">
+    <a asp-action="Locations"><< Back to Locations List</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalItems)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserDetails.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserDetails.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationDetails.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationDetails.State)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalItems)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDetails.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDetails.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationDetails.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationDetails.State)
+            </td>
+
+            <td class="table-link">
+                @Html.ActionLink("Show Details", "LocationOrderDetails", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

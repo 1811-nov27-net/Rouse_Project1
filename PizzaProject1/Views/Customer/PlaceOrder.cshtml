@@ -1,0 +1,87 @@
+﻿@model PizzaProject1.Models.OrderEntryAndPizzasJunction
+
+@{
+    ViewData["Title"] = "PlaceOrder";
+}
+
+<div class="text-center">
+    <h1>Place Order</h1>
+</div>
+
+<br /><br />
+
+<h4>For @TempData.Peek("uFirstName") @TempData.Peek("uLastName") from @TempData.Peek("lCity"), @TempData.Peek("lState")</h4>
+
+<p class="return-link">
+    <a asp-action="CancelOrder" asp-route-id="@TempData.Peek("workingOrder")">Cancel Order</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderEntries.FirstOrDefault().PizzaDetails.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderEntries.FirstOrDefault().PizzaDetails.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderEntries.FirstOrDefault().Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderEntries.FirstOrDefault().Subtotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderEntries)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PizzaDetails.Name)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.PizzaDetails.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Subtotal)
+                </td>
+                <td class="table-link">
+                    @Html.ActionLink("Remove", "RemoveEntry", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+<h4>Current total: $@Math.Round(Decimal.Parse(TempData.Peek("runningTotal").ToString()), 2)</h4>
+
+<p>
+    <a asp-action="SubmitOrder" asp-route-id="@TempData.Peek("workingOrder")">Place Order</a>
+</p>
+
+<br /><br />
+
+<p>Add pizza:</p>
+<form asp-action="AddPizzaToOrder">
+    <div class="form-group">
+        <select class="form-control" name="pizza_setter">
+            @foreach (var item in Model.AllPizzas)
+            {
+                <option value="@item.Id">@item.Name (@item.Price.ToString("C") each)</option>
+            }
+        </select>
+    </div>
+
+    <input type="number" name="quantity_setter" min="1" max="12" value="1" />
+
+    <input type="submit" value="Add Pizza" />
+</form>
+
+<p class="alert">@TempData["error"]</p>
